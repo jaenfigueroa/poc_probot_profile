@@ -29,4 +29,12 @@ module.exports = (app) => {
     })
     return context.octokit.issues.createComment(issueComment)
   })
+
+  // Cuando se reabre un issue
+  app.on('issues.reopened', async (context) => {
+    const issueComment = context.issue({
+      body: "Se reabrio un issue 😃",
+    })
+    return context.octokit.issues.createComment(issueComment)
+  })
 };
