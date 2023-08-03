@@ -4,11 +4,11 @@
  */
 module.exports = (app) => {
   // Your code here
-  app.log.info("Yay, the app was loaded!");
+  app.log.info("¡Sí, la aplicación se ha cargado!");
 
   app.on("issues.opened", async (context) => {
     const issueComment = context.issue({
-      body: "Thanks for opening this issue!",
+      body: "Gracias por abrir este issue!",
     });
     return context.octokit.issues.createComment(issueComment);
   });
