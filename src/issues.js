@@ -4,28 +4,28 @@
  */
 module.exports = (app) => {
   // Tu codigo aqui
-  app.log.info("¡Sí, la aplicación se ha cargado!");
+  app.log.info('¡Sí, la aplicación se ha cargado!')
 
   // Cuando se abre un issue nuevo
-  app.on("issues.opened", async (context) => {
+  app.on('issues.opened', async (context) => {
     const issueComment = context.issue({
-      body: "Gracias por abrir este issue 😃",
-    });
-    return context.octokit.issues.createComment(issueComment);
-  });
+      body: 'Gracias por abrir este issue 😃',
+    })
+    return context.octokit.issues.createComment(issueComment)
+  })
 
   // Cuando se edita un issue
-  app.on("issues.edited", async (context) => {
+  app.on('issues.edited', async (context) => {
     const issueComment = context.issue({
-      body: "Se edito un issue 😃",
-    });
-    return context.octokit.issues.createComment(issueComment);
-  });
+      body: 'Se edito un issue 😃',
+    })
+    return context.octokit.issues.createComment(issueComment)
+  })
 
   // Cuando se cierra un issue
   app.on('issues.closed', async (context) => {
     const issueComment = context.issue({
-      body: "Se cerro un issue 😃",
+      body: 'Se cerro un issue 😃',
     })
     return context.octokit.issues.createComment(issueComment)
   })
@@ -33,8 +33,8 @@ module.exports = (app) => {
   // Cuando se reabre un issue
   app.on('issues.reopened', async (context) => {
     const issueComment = context.issue({
-      body: "Se reabrio un issue 😃",
+      body: 'Se reabrio un issue 😃',
     })
     return context.octokit.issues.createComment(issueComment)
   })
-};
+}
