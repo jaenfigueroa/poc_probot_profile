@@ -1,5 +1,7 @@
 const { run } = require('probot')
 const app_issues = require('./src/issues')
+// const app_discussions = require('./src/discussions')
 
-// pass a probot app function
+// pasarle una función
 run(app_issues)
+// run(app_discussions)

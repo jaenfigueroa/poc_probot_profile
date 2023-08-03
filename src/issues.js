@@ -37,4 +37,20 @@ module.exports = (app) => {
     })
     return context.octokit.issues.createComment(issueComment)
   })
+
+  // Cuando se asigna un issue
+  app.on('issues.assigned', async (context) => {
+    const issueComment = context.issue({
+      body: 'Se asigno un issue 😃',
+    })
+    return context.octokit.issues.createComment(issueComment)
+  })
+
+  // Cuando se desasigna un issue
+  app.on('issues.unassigned', async (context) => {
+    const issueComment = context.issue({
+      body: 'Se desasigno un issue 😃',
+    })
+    return context.octokit.issues.createComment(issueComment)
+  })
 }
