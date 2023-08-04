@@ -9,6 +9,6 @@
 //     const discussionsComment = context.issue({
 //       body: 'Gracias por abrir esta discusión 😃',
 //     })
-//     return context.octokit.discussionsComments.create(discussionsComment)
+//     return context.octokit.projects
 //   })
 // }

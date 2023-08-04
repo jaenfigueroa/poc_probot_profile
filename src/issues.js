@@ -16,6 +16,7 @@ module.exports = (app) => {
 
   // Cuando se edita un issue
   app.on('issues.edited', async (context) => {
+
     const issueComment = context.issue({
       body: 'Se edito un issue 😃',
     })
