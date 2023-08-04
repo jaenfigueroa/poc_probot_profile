@@ -17,16 +17,6 @@ module.exports = (app) => {
   // Cuando se edita un issue
   app.on('issues.edited', async (context) => {
 
-    // Obtener la lista de comentarios usando la función listComments
-    // const { owner, repo, issue_number } = context.issue()
-    // const { data: comments } = await context.octokit.issues.listComments({
-    //   owner,
-    //   repo,
-    //   issue_number,
-    // })
-
-    // console.log(comments)
-
     const issueComment = context.issue({
       body: 'Se edito un issue 😃',
     })

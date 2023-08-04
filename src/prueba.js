@@ -4,69 +4,71 @@
  */
 
 module.exports = (app) => {
-  // app.onAny(async (context) => {
+  // app.onAny(async () => {
   //   console.log('Se hizo algo')
-
-  //   context.log.info(context.payload.repositories)
   // })
 
+  app.on('project_column.moved', () => {
+    console.log('se moevio')
+  })
+
   // CUANDO SE ABRE UN PR
-  app.on('pull_request.opened', async (context) => {
-    console.log('se abrio un pr')
+  // app.on('pull_request.opened', async (context) => {
+  //   console.log('se abrio un pr')
 
-    // const RAMA_DESTINO = context.payload.pull_request.base.ref
-    // const NUMBER_PR = context.payload.pull_request.number
-    // const PR_STATE = context.payload.pull_request.state
+  //   // const RAMA_DESTINO = context.payload.pull_request.base.ref
+  //   // const NUMBER_PR = context.payload.pull_request.number
+  //   // const PR_STATE = context.payload.pull_request.state
 
-    // console.log({ RAMA_DESTINO, NUMBER_PR, PR_STATE })
+  //   // console.log({ RAMA_DESTINO, NUMBER_PR, PR_STATE })
 
-    // console.log('PAYLOAD: ', context.payload)
-    // console.log('OCTOKIT: ', context.octokit.projects)
+  //   // console.log('PAYLOAD: ', context.payload)
+  //   // console.log('OCTOKIT: ', context.octokit.projects)
 
-    const data = await context.octokit.projects.listColumns({
-      project_id: 3,
-    })
+  //   const data = await context.octokit.projects.updateCard({
+  //     card_id: 6,
+  //   })
 
-    console.log(data)
+  //   console.log(data)
 
-    // context.octokit.projects.moveCard({
-    //   card_id: context.payload.pull_request.id,
-    //   position: 'top',
-    //   column_id: 4,
-    // })
+  //   // context.octokit.projects.moveCard({
+  //   //   card_id: context.payload.pull_request.id,
+  //   //   position: 'top',
+  //   //   column_id: 4,
+  //   // })
 
-    // console.log('LOG: ', context.log)
-  })
+  //   // console.log('LOG: ', context.log)
+  // })
 
-  // CUANDO UN PR SE ACEPTA Y SE CIERRA, SE MUEVE EL ISSUE A LA COLUMNA DEPENDIENDO DE LA RAMA A LA QUE SE HIZO EL PR
-  app.on('pull_request.closed', async (context) => {
-    console.log('se cerro y mergeo un pr')
+  // // CUANDO UN PR SE ACEPTA Y SE CIERRA, SE MUEVE EL ISSUE A LA COLUMNA DEPENDIENDO DE LA RAMA A LA QUE SE HIZO EL PR
+  // app.on('pull_request.closed', async (context) => {
+  //   console.log('se cerro y mergeo un pr')
 
-    // const RAMA_DESTINO = context.payload.pull_request.base.ref
-    // const NUMBER_PR = context.payload.pull_request.number
-    // const PR_STATE = context.payload.pull_request.state
-    // console.log({ RAMA_DESTINO, NUMBER_PR, PR_STATE })
+  //   // const RAMA_DESTINO = context.payload.pull_request.base.ref
+  //   // const NUMBER_PR = context.payload.pull_request.number
+  //   // const PR_STATE = context.payload.pull_request.state
+  //   // console.log({ RAMA_DESTINO, NUMBER_PR, PR_STATE })
 
-    const data = await context.octokit.projects.listColumns({
-      project_id: 3,
-    })
+  //   const data = await context.octokit.projects.listColumns({
+  //     project_id: 3,
+  //   })
 
-    console.log(data)
+  //   console.log(data)
 
-    // context.octokit.projects.moveCard({
-    //   card_id: context.payload.pull_request.id,
-    //   position: 'top',
-    //   column_id: 5,
-    // })
+  //   // context.octokit.projects.moveCard({
+  //   //   card_id: context.payload.pull_request.id,
+  //   //   position: 'top',
+  //   //   column_id: 5,
+  //   // })
 
-    // if (RAMA_DESTINO === 'main') {
-    //   console.log('se cerro y mergeo un pr a la rama MAIN')
-    // } else if (RAMA_DESTINO === 'dev') {
-    //   console.log('se cerro y mergeo un pr a la rama DEV')
-    // } else {
-    //   console.log('se cerro y mergeo un pr a otra que no es MAIN ni DEV')
-    // }
-  })
+  //   // if (RAMA_DESTINO === 'main') {
+  //   //   console.log('se cerro y mergeo un pr a la rama MAIN')
+  //   // } else if (RAMA_DESTINO === 'dev') {
+  //   //   console.log('se cerro y mergeo un pr a la rama DEV')
+  //   // } else {
+  //   //   console.log('se cerro y mergeo un pr a otra que no es MAIN ni DEV')
+  //   // }
+  // })
 
   // app.on('pull_request.closed', async (context) => {
   //   console.log('se cerro y mergeo un pr')
@@ -87,5 +89,22 @@ module.exports = (app) => {
   // // muestra todos los repos en los que ha instalado la aplicación
   // context.log.info(context.payload.repositories);
 
+  // app.on([
+  //   'projects_v2_item.archived',
+  //   'projects_v2_item.converted',
+  //   'projects_v2_item.created',
+  //   'projects_v2_item.deleted',
+  //   'projects_v2_item.edited',
+  //   'projects_v2_item.reordered',
+  //   'projects_v2_item.restored',
+  // ], async () => {
+  //   // const issueComment = context.issue({
+  //   //   body: ,
+  //   // })
+  //   // return context.octokit.issues.createComment(issueComment)
+  //   // return context.octokit.projects.updateCard(issueComment)
+
+  //   console.log('Se hizo algo con una card 😃')
+  // })
 
 }
