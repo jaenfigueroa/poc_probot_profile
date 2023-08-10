@@ -31,3 +31,7 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 ## License
 
 [ISC](LICENSE) © 2023 Jaen Figueroa
+
+## Others
+
+- [Playground de Github para graphql](https://docs.github.com/es/graphql/guides/using-the-explorer)

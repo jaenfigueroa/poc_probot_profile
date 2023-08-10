@@ -6,8 +6,8 @@ const { run } = require('probot')
 // run(app_issues)
 // run(app_discussions)
 
-const app_pulls = require('./src/pulls')
-run(app_pulls)
+// const app_pulls = require('./src/pulls')
+// run(app_pulls)
 
-// const prueba = require('./src/prueba')
-// run(prueba)
+const prueba = require('./src/prueba')
+run(prueba)
