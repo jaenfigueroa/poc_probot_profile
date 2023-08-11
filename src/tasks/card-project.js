@@ -5,7 +5,12 @@
 
 module.exports = (app) => {
   const MOVE_CARD = `
-    mutation($fieldId: ID!, $itemId: ID!, $projectId: ID!, $value: ProjectV2FieldValue!) {
+    mutation(
+      $fieldId: ID!,
+      $itemId: ID!,
+      $projectId: ID!,
+      $value: ProjectV2FieldValue!)
+      {
       updateProjectV2ItemFieldValue(
         input: {
           fieldId: $fieldId
@@ -22,11 +27,11 @@ module.exports = (app) => {
   /* MOVER UNA CARD EN EL TABLERO */
   app.on('issues.edited', async (context) => {
     context.octokit.graphql(MOVE_CARD, {
-      fieldId: 'PVTSSF_lAHOBB4Q_M4AT3TgzgMsHcE',
-      itemId: 'PVTI_lAHOBB4Q_M4AT3TgzgIdMHc',
-      projectId: 'PVT_kwHOBB4Q_M4AT3Tg',
+      fieldId: 'PVTSSF_lAHOBB4Q_M4AT3TgzgMsHcE' /* status */,
+      itemId: 'PVTI_lAHOBB4Q_M4AT3TgzgIfmCc' /* hola mundo 2 */,
+      projectId: 'PVT_kwHOBB4Q_M4AT3Tg' /* foxed_v2 */,
       value: {
-        singleSelectOptionId: '29b4d1d0',
+        singleSelectOptionId: '29b4d1d0' /* in progress */,
       },
     })
   })
