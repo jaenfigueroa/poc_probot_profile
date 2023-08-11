@@ -13,32 +13,32 @@ module.exports = (app) => {
   })
 
   // CUANDO SE ABRE UN PR
-  // app.on('pull_request.opened', async (context) => {
-  //   console.log('se abrio un pr')
+  app.on('pull_request.opened', async (context) => {
+    console.log('se abrio un pr')
 
-  //   // const RAMA_DESTINO = context.payload.pull_request.base.ref
-  //   // const NUMBER_PR = context.payload.pull_request.number
-  //   // const PR_STATE = context.payload.pull_request.state
+    // const RAMA_DESTINO = context.payload.pull_request.base.ref
+    // const NUMBER_PR = context.payload.pull_request.number
+    // const PR_STATE = context.payload.pull_request.state
 
-  //   // console.log({ RAMA_DESTINO, NUMBER_PR, PR_STATE })
+    // console.log({ RAMA_DESTINO, NUMBER_PR, PR_STATE })
 
-  //   // console.log('PAYLOAD: ', context.payload)
-  //   // console.log('OCTOKIT: ', context.octokit.projects)
+    // console.log('PAYLOAD: ', context.payload)
+    // console.log('OCTOKIT: ', context.octokit.projects)
 
-  //   const data = await context.octokit.projects.updateCard({
-  //     card_id: 6,
-  //   })
+    const data = await context.octokit.projects.updateCard({
+      card_id: 6,
+    })
 
-  //   console.log(data)
+    console.log(data)
 
-  //   // context.octokit.projects.moveCard({
-  //   //   card_id: context.payload.pull_request.id,
-  //   //   position: 'top',
-  //   //   column_id: 4,
-  //   // })
+    // context.octokit.projects.moveCard({
+    //   card_id: context.payload.pull_request.id,
+    //   position: 'top',
+    //   column_id: 4,
+    // })
 
-  //   // console.log('LOG: ', context.log)
-  // })
+    // console.log('LOG: ', context.log)
+  })
 
   // // CUANDO UN PR SE ACEPTA Y SE CIERRA, SE MUEVE EL ISSUE A LA COLUMNA DEPENDIENDO DE LA RAMA A LA QUE SE HIZO EL PR
   // app.on('pull_request.closed', async (context) => {
