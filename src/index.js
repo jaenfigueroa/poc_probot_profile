@@ -1,9 +1,9 @@
+const { getNormalizedNames } = require('./utils/getNormalizedNames')
+
 /**
  * This is the main entrypoint to your Probot app
  * @param {import('probot').Probot} app
  */
-
-const { getNormalizedNames } = require('./utils/getNormalizedNames')
 
 module.exports = (app) => {
   /* AL ASIGNAR UN USUARIO A UNA ISSUE */
