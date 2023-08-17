@@ -1,5 +1,5 @@
-const { MOVE_CARD } = require('./graphql/move_card')
-const { octokit } = require('./config/octokit')
+const { MOVE_CARD } = require('../src/graphql/move_card')
+const { octokit } = require('../src/config/octokit')
 
 /**
  * This is the main entrypoint to your Probot app
