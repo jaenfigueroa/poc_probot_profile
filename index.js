@@ -1,11 +1,6 @@
-// // const { run } = require('probot')
-// const { Probot } = require('probot')
+require('dotenv').config()
+const { run } = require('probot')
 // // const bot = require('./src')
-// const bot = require('./src/move-card')
-// // const bot = require('./src/prueba')
+const bot = require('./src/move-card')
 
-// // run(bot)
-// const app = new Probot({
-//   // appId: process.env.APP_ID,
-//   githubToken: process.env.GITHUB_TOKEN,
-// })
+run(bot)
