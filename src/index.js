@@ -66,4 +66,6 @@ module.exports = (app) => {
       return context.octokit.issues.createComment(issueComment)
     }
   })
+
+  /* MOVER LAS CARDS DEL TABLERO */
 }
