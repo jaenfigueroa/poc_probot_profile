@@ -26,12 +26,20 @@ module.exports = (app) => {
 
   /* MOVER UNA CARD EN EL TABLERO */
   app.on('issues.edited', async (context) => {
-    context.octokit.graphql(MOVE_CARD, {
-      fieldId: 'PVTSSF_lAHOBB4Q_M4AT3TgzgMsHcE' /* status */,
-      itemId: 'PVTI_lAHOBB4Q_M4AT3TgzgIfmCc' /* hola mundo 2 */,
-      projectId: 'PVT_kwHOBB4Q_M4AT3Tg' /* foxed_v2 */,
+    const userToken = 'TU_TOKEN_DE_ACCESO_PERSONAL_AQUI'
+
+    const graphqlWithAuth = context.octokit.graphql.defaults({
+      headers: {
+        authorization: `Bearer ${userToken}`,
+      },
+    })
+
+    graphqlWithAuth(MOVE_CARD, {
+      fieldId: 'PVTSSF_lAHOBB4Q_M4AT3TgzgMsHcE',
+      itemId: 'PVTI_lAHOBB4Q_M4AT3TgzgImQT0',
+      projectId: 'PVT_kwHOBB4Q_M4AT3Tg',
       value: {
-        singleSelectOptionId: '29b4d1d0' /* in progress */,
+        singleSelectOptionId: '29b4d1d0',
       },
     })
   })
