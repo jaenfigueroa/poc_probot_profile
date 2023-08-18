@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const { ProbotOctokit } = require('probot')
 
 const octokit = new ProbotOctokit({
