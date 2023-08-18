@@ -1,4 +1,4 @@
-const MOVE_CARD = `
+module.exports.MOVE_CARD = `
   mutation(
     $fieldId: ID!,
     $itemId: ID!,
@@ -17,6 +17,3 @@ const MOVE_CARD = `
     }
   }
 `
-module.exports = {
-  MOVE_CARD,
-}

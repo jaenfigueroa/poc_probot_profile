@@ -12,8 +12,8 @@
     "probot-app"
   ],
   "scripts": {
-    "start": "node main.js",
-    "dev": "nodemon main.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "jest"
   },
   "dependencies": {
