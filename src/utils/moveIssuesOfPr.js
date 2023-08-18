@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const { GET_ISSUES_OF_PR } = require('../graphql/query/get_issues-of-pull')
 const { moveCard } = require('./moveCard')
 
