@@ -46,7 +46,10 @@ module.exports = (app) => {
   /* AL ASIGNAR UN REVISADOR A UN PR */
   app.on('pull_request.review_requested', async (context) => {
     const REQUESTED_REVIEWER = context.payload.pull_request.requested_reviewers
+    console.log(REQUESTED_REVIEWER)
+
     const REVIEWER = REQUESTED_REVIEWER.pop().login
+    console.log(REVIEWER)
 
     // agregar un comentario al pr
     const issueComment = context.issue({
