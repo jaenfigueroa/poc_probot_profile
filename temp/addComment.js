@@ -15,8 +15,6 @@ const addComment = `
 module.exports = (app) => {
   app.on('issues.opened', async (context) => {
     // Agregamos un comentario a la issue
-    console.log(context.payload.issue.node_id)
-
     context.octokit.graphql(addComment, {
       id: context.payload.issue.node_id,
       body: 'Hola mundo',
