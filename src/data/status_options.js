@@ -1,30 +1,25 @@
+require('dotenv').config()
+
 module.exports.STATUS_OPTIONS = {
   // BACKLOG: {
-  //   name: 'Backlog',
-  //   id: 'c1342ed7',
+  //   id: 'xxxxxxxxxx',
   // },
   // TODO: {
-  //   name: 'Todo',
-  //   id: 'b3e7b60f',
+  //   id: 'xxxxxxxxxx',
   // },
   IN_PROGRESS: {
-    // name: 'In Progress',
-    id: '4495d12b',
+    id: process.env.IN_PROGRESS_ID,
   },
   IN_PR: {
-    // name: 'In Pr - In Review',
-    id: '3b01b2b5',
+    id: process.env.IN_PR_ID,
   },
   IN_DEV: {
-    // name: 'In Dev - QA Ready',
-    id: '7e5b3513',
+    id: process.env.IN_DEV_ID,
   },
   IN_MAIN: {
-    // name: 'In Main - Deployed',
-    id: '4fb3202d',
+    id: process.env.IN_MAIN_ID,
   },
   // DONE: {
-  //   name: 'Done',
-  //   id: '8c3ec566',
+  //   id: 'xxxxxxxxxx',
   // },
 }
