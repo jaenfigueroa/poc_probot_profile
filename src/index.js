@@ -45,7 +45,7 @@ module.exports = (app) => {
 
     if (RAMA === 'main') {
       const issueComment = context.issue({
-        body: `@${USER} no olvides **vincular** todos los issues de "In dev" que se estan pasando a la rama "main" en **Development** antes de hacer el **merge pull request**`,
+        body: `@${USER} no olvides **vincular** todos los issues de "In dev" que se estan pasando a la rama "main" en **Development** antes de hacer el **merge pull request**.`,
       })
       return context.octokit.issues.createComment(issueComment)
     }
@@ -82,12 +82,7 @@ module.exports = (app) => {
   /* AL REABRIR UN PR */
   app.on('pull_request.reopened', async (context) => {
     const NUMBER_PR = context.payload.pull_request.number
-    await moveIssuesOfPr(
-      context,
-      NUMBER_PR,
-      NUMBER_PR,
-      STATUS_OPTIONS['IN_PR'].id,
-    )
+    await moveIssuesOfPr(context, NUMBER_PR, STATUS_OPTIONS['IN_PR'].id)
   })
 
   /* AL MERGEAR EL PR A DEV O MAIN */

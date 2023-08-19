@@ -4,10 +4,13 @@ const { GET_ISSUES_OF_PR } = require('../graphql/query/get_issues-of-pull')
 const { moveCard } = require('./moveCard')
 
 module.exports.moveIssuesOfPr = async (context, numberPr, new_column_id) => {
+  const REPO_NAME = context.payload.repository.name
+
   /* obtener los issue asociados */
   const DATA = await context.octokit.graphql(GET_ISSUES_OF_PR, {
     login: process.env.ORG_NAME,
-    name: process.env.REPO_NAME,
+    // name: process.env.REPO_NAME,
+    name: REPO_NAME,
     number: numberPr,
   })
 
@@ -18,7 +21,7 @@ module.exports.moveIssuesOfPr = async (context, numberPr, new_column_id) => {
   await Promise.all(
     ISSUES.map(async (issue) => {
       const ITEM_NUMBER = issue.node.number
-      await moveCard(ITEM_NUMBER, new_column_id)
+      await moveCard(context, ITEM_NUMBER, new_column_id)
     }),
   )
 }
